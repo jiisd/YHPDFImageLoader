@@ -3,12 +3,17 @@
 
 
 ### 一个用于在iOS项目中高效加载PDF矢量图标(尺寸可以无限放大)的工具。
-####在 pod 中集成方法
+---
+####如何集成
+
+#####1.使用 CocoaPods 
 * 在 Podfile 文件中添加:
 
 		pod 'YHPDFImageLoader'
 	
-* 执行 pod install 命令
+
+#####2.下载源码手动集成
+---
 	
 ####如何使用
 
@@ -24,19 +29,18 @@
 	 UIImage *image = [UIImage yh_imageNamed:@"pdfName"];
 ```
 * That‘s all.
-* 
 
-####效果展示（源文件图片分辨率为 30x46 ，大小为 8KB）
+
+####效果展示：（源矢量图图标文件默认分辨率为 30x46 ，大小为 8KB）
 
 ![](YHPDFResource/YHPDFImageLoader-demoGif.gif)
 
 
-##更多使用方法请参照项目中 Demo。
+#更多使用方法请参照项目中 Demo。
 
-
-<br /><br /><br />
+<br />
 - - - -
-####补充：相关简介
+###补充：相关简介
 我们知道在 Xcode 6 及以上版本可以在 Asset Catalog 中使用 PDF 格式的矢量图资源。
 
 ```
@@ -82,10 +86,14 @@
 
 	想想如果使用 PDF 类型的资源直接改变一下图标大小不就可以了吗？那就直接行动，但是最后发现在 Asset Catalog 就算使用了 PDF 类型的图放大后还是模糊了。为什么呢？原来Xcode在编译的时候只是依据目前设备所需要的资源只自动生成1X、2X和3X规格的位图类型的图片，那么在后期通过只改变控件的大小来希望图片精度也动态的调整自然是行不通了。
 
-	由此就产生了 **[YHPDFImageLoader](https://github.com/jiisd/YHPDFImageLoader)** 这个工具，它旨在解决上述后期动态调整放大图片发虚的问题，与系统调用加载图片兼容，并具有三级加载两级缓存功能，以减少重复性质的运算并提高加载效率,下面是一张加载效果对比图：
+	由此就产生了 **[YHPDFImageLoader](https://github.com/jiisd/YHPDFImageLoader)** 这个工具，它旨在解决上述后期动态调整放大图片会有锯齿的问题，与加载常规 PNG 图片资源兼容，并具有三级加载两级缓存，以减少重复性质的运算并提高加载效率。
+<br /><br />**加载效果对比图：**
 <br /> <br />
 	![](YHPDFResource/magnify.png)
-
+	
+<br /><br />**加载流程示意图：**
+<br /> <br />
+	![](YHPDFResource/LoadingProcess.png)
 
 当然，使用 **[YHPDFImageLoader](https://github.com/jiisd/YHPDFImageLoader)** 依然可以使用 .bundle 资源文件包或者文件夹的形式管理 PDF 素材资源（虽然苹果声称使用 Asset Catalog 后 APP 的相关资源可以有效的防盗，但是目前仍可轻而易举的提取出里面的内容）。
 
