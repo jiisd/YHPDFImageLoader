@@ -4,43 +4,45 @@
 
 ### 一个用于在iOS项目中高效加载PDF矢量图标(尺寸可以无限放大)的工具。
 ---
-####如何集成
+#### 如何集成
 
-#####1.使用 CocoaPods 
+##### 1.使用 CocoaPods 
 * 在 Podfile 文件中添加:
 
 		pod 'YHPDFImageLoader'
 	
 
-#####2.下载源码手动集成
+##### 2.下载源码手动集成
 ---
 	
-####如何使用
+#### 如何使用
 
-* 第一步：
+* step 1：
 
 ```
 	 #import "UIImage+YHPDFIcon.h"
 ```
 
-* 第二步：
+* step 2：
 
 ```
 	 UIImage *image = [UIImage yh_imageNamed:@"pdfName"];
 ```
-* That‘s all.
+* That's all.
 
 
-####效果展示：（源矢量图图标文件默认分辨率为 30x46 ，大小为 8KB）
+#### 效果展示：（源矢量图图标文件默认分辨率为 30x46 ，大小为 8KB）
+<br /> <br />
+	![](YHPDFResource/YHPDFImageLoader-demoGif.gif)
 
-![](YHPDFResource/YHPDFImageLoader-demoGif.gif)
 
-
-#更多使用方法请参照项目中 Demo。
+## 更多使用方法请参照项目中 Demo。
 
 <br />
 - - - -
-###补充：相关简介
+
+### 补充：相关简介
+
 我们知道在 Xcode 6 及以上版本可以在 Asset Catalog 中使用 PDF 格式的矢量图资源。
 
 ```
